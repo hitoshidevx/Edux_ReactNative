@@ -5,12 +5,14 @@ import { StyleSheet, Text, View } from 'react-native';
 //Navigations
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
 
 //Paginas
-import login from './pages/login';
-import Login from '../pages/login';
+import Login from './pages/login';
 
 const Autenticado = () =>{
 

@@ -33,12 +33,9 @@ const Login = () =>{
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                if (data.status != 404) {
+                if (data.token !== null) {
                     alert('Bem vindo!!');
-
-                    salvar(data.token);
-                    navigation.push('Autenticado');
+                    console.log(data);
                 } else {
                     alert('Email ou senha inválidos... Tente novamente');
                 }
