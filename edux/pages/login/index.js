@@ -4,7 +4,7 @@ import { url } from '../../utils/constants'
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Login = () =>{
+const Login = ( {navigator} ) =>{
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
@@ -24,7 +24,7 @@ const Login = () =>{
             senha: senha
         }
 
-        fetch(`${url}login`, {
+        fetch("https://192.168.15.15:5000/api/Login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,12 +33,17 @@ const Login = () =>{
         })
             .then(response => response.json())
             .then(data => {
-                if (data.token !== null) {
-                    alert('Bem vindo!!');
-                    console.log(data);
-                } else {
-                    alert('Email ou senha inválidos... Tente novamente');
+                
+                if(data.token !== null || data.token !== undefined || data.token !== ''){
+
+                    alert("Seja bem vindo(a)!");
+                    console.log(data.token);
+                    salvar(data.token);
+
+                }else{
+                    alert("Email ou senha inválidos :( ");
                 }
+
             })
 
     }
