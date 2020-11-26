@@ -50,6 +50,7 @@ const Autenticado = () =>{
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Alunos" component={Alunos} />
           <Tab.Screen name="Turma" component={Turma} />
+          <Tab.Screen name="Autenticado" component={Autenticado} />
       </Tab.Navigator>
     </NavigationContainer>
   )

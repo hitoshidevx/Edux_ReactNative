@@ -4,7 +4,7 @@ import { url } from '../../utils/constants'
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Login = ( {navigator} ) =>{
+const Login = ( {navigation} ) =>{
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
@@ -39,6 +39,7 @@ const Login = ( {navigator} ) =>{
                     alert("Seja bem vindo(a)!");
                     console.log(data.token);
                     salvar(data.token);
+                    navigation.push('Autenticado');
 
                 }else{
                     alert("Email ou senha inválidos :( ");
