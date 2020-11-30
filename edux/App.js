@@ -16,11 +16,12 @@ import Home from './pages/Home';
 import Alunos from './pages/Alunos';
 import Turma from './pages/Turma';
 import Login from './pages/login';
+import TimeLine from './pages/timeline';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Autenticado = () =>{
 
   return(
-    <NavigationContainer style={styles.container}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -50,9 +51,24 @@ const Autenticado = () =>{
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Alunos" component={Alunos} />
           <Tab.Screen name="Turma" component={Turma} />
-          <Tab.Screen name="Autenticado" component={Autenticado} />
+          <Tab.Screen name="TimeLine" component={TimeLine} />
       </Tab.Navigator>
-    </NavigationContainer>
+  )
+
+}
+
+const Logout = ( {navigation} ) =>{
+
+  return(
+    <View>
+      alert("Deseja realmente sair da aplicação?");
+      <Button onPress={() =>{
+        AsyncStorage.removeItem('@jwt');
+        navigation.push('Login');
+
+      }} title="Sair" ></Button>
+    </View>
+
   )
 
 }
