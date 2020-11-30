@@ -17,7 +17,16 @@
     height: 6.5em;
     border-radius: 50%;
     display: flex;
-    margin: 1em;
+    /* margin: 1em; */
+}
+
+.margem{
+    margin-left: 2em;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
 }
 
 .amarela{
@@ -43,6 +52,8 @@
 
 .centro{
     display: flex;
+    margin: auto;
+    align-items: center;
     margin: auto;
 }
 

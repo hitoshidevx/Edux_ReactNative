@@ -34,23 +34,22 @@ const Home = () => {
                 </div>
 
                 <div className="centro">
-                    <div>
-                        <div className="bola vermelha">
-                            <p className="letra">Bola 1</p>
-                        </div>
+                    <div className="bola vermelha">
+                        <p className="letra">Bola 1</p>
+                    </div>
 
+                    <div className="flex">
                         <div className="bola amarela">
                             <p className="letra">Bola 2</p>
                         </div>
-                    </div>
-                    <div>
-                        <div className="bola verde">
+
+                        <div className="bola verde margem">
                             <p className="letra">Bola 3</p>
                         </div>
-                        
-                        <div className="bola azul">
-                            <p className="letra">Bola 4</p>
-                        </div>
+                    </div>
+                    
+                    <div className="bola azul">
+                        <p className="letra">Bola 4</p>
                     </div>
                 </div>
             </div>
