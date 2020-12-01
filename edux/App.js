@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //Navigationsyarn add @react-navigation/stack
@@ -52,6 +52,7 @@ const Autenticado = () =>{
           <Tab.Screen name="Alunos" component={Alunos} />
           <Tab.Screen name="Turma" component={Turma} />
           <Tab.Screen name="TimeLine" component={TimeLine} />
+          <Tab.Screen name="Logout" component={Logout} />
       </Tab.Navigator>
   )
 
@@ -65,8 +66,14 @@ const Logout = ( {navigation} ) =>{
       <Button onPress={() =>{
         AsyncStorage.removeItem('@jwt');
         navigation.push('Login');
-
-      }} title="Sair" ></Button>
+        <Image
+          style={styles.imagemSair}
+          source={{
+          uri:
+         'https://www.flaticon.com/svg/static/icons/svg/25/25376.svg',
+        }}
+       />
+      }} title="Sair"></Button>
     </View>
 
   )

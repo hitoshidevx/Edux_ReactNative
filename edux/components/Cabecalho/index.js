@@ -1,7 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const Cabecalho = () => {
+
+    const Logout = ({navigation}) =>{
+        return(
+            <Button title="Sair" onPress={() => {
+                AsyncStorage.removeItem('@jwt');
+                navigation.push('Login');
+              }} />
+        )
+    }
+
 
     return(
         <View style={styles.cabecalho}>
@@ -14,6 +24,7 @@ const Cabecalho = () => {
                             'https://www.flaticon.com/svg/static/icons/svg/25/25376.svg',
                         }}
                     />
+                    <TouchableOpacity onPress={Logout} />
             </View>
         </View>
     )
