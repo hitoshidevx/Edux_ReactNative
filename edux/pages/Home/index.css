@@ -13,20 +13,18 @@
 }
 
 .bola{
-    width: 6.5em;
-    height: 6.5em;
+    width: 6em;
+    height: 6em;
     border-radius: 50%;
     display: flex;
-    /* margin: 1em; */
 }
 
-.margem{
-    margin-left: 2em;
-}
 
 .flex {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .amarela{
@@ -51,8 +49,9 @@
 }
 
 .centro{
+    width: 90%;
     display: flex;
-    margin: auto;
+    flex-direction: column;
     align-items: center;
     margin: auto;
 }
@@ -71,4 +70,5 @@
     justify-content: space-around;
     
 }
+
 
