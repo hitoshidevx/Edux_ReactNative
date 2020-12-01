@@ -91,7 +91,7 @@ export default Login;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000',
+        backgroundColor: '#9200D6',
         alignItems: 'center',
         justifyContent: 'center',
     },
