@@ -5,10 +5,12 @@ const Cabecalho = () => {
 
     const Logout = ({navigation}) =>{
         return(
-            <Button title="Sair" onPress={() => {
-                AsyncStorage.removeItem('@jwt');
-                navigation.push('Login');
-              }} />
+            <View>
+                <Button title="Sair" onPress={() => {
+                    AsyncStorage.removeItem('@jwt');
+                    navigation.push('Login');
+                  }} />
+            </View>
         )
     }
 

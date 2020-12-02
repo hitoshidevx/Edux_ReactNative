@@ -52,30 +52,7 @@ const Autenticado = () =>{
           <Tab.Screen name="Alunos" component={Alunos} />
           <Tab.Screen name="Turma" component={Turma} />
           <Tab.Screen name="TimeLine" component={TimeLine} />
-          <Tab.Screen name="Logout" component={Logout} />
       </Tab.Navigator>
-  )
-
-}
-
-const Logout = ( {navigation} ) =>{
-
-  return(
-    <View>
-      alert("Deseja realmente sair da aplicação?");
-      <Button onPress={() =>{
-        AsyncStorage.removeItem('@jwt');
-        navigation.push('Login');
-        <Image
-          style={styles.imagemSair}
-          source={{
-          uri:
-         'https://www.flaticon.com/svg/static/icons/svg/25/25376.svg',
-        }}
-       />
-      }} title="Sair"></Button>
-    </View>
-
   )
 
 }
