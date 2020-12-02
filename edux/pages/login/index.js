@@ -24,7 +24,7 @@ const Login = ( {navigation} ) =>{
             senha: senha
         }
 
-        fetch("https://192.168.15.15:5000/api/Login", {
+        fetch(url+"Login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

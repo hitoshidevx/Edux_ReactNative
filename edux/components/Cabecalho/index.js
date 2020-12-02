@@ -1,18 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
+const Logout = ({navigation}) =>{
+    return(
+        <View>
+            <Button title="Sair" onPress={() => {
+                AsyncStorage.removeItem('@jwt');
+                navigation.push('Login');
+              }} />
+        </View>
+    )
+}
+
 const Cabecalho = () => {
 
-    const Logout = ({navigation}) =>{
-        return(
-            <View>
-                <Button title="Sair" onPress={() => {
-                    AsyncStorage.removeItem('@jwt');
-                    navigation.push('Login');
-                  }} />
-            </View>
-        )
-    }
 
 
     return(
@@ -25,8 +26,8 @@ const Cabecalho = () => {
                         uri:
                             'https://www.flaticon.com/svg/static/icons/svg/25/25376.svg',
                         }}
+                        onPress={Logout}
                     />
-                    <TouchableOpacity onPress={Logout} />
             </View>
         </View>
     )
