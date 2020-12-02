@@ -1,25 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-
-const Logout = ({navigation}) =>{
-    return(
-        <View>
-            <Button title="Sair" onPress={() => {
-                AsyncStorage.removeItem('@jwt');
-                navigation.push('Login');
-              }} />
-        </View>
-    )
-}
+import { View, Text, StyleSheet, Image, TouchableOpacity, Button } from 'react-native';
 
 const Cabecalho = () => {
 
-
+    const Logout = ({navigation}) =>{
+        return(
+            <View>
+                <TouchableOpacity onPress={() => {
+                    AsyncStorage.removeItem('@jwt');
+                    navigation.push('Login');
+                  }} />
+            </View>
+        )
+    }
 
     return(
         <View style={styles.cabecalho}>
             <View style={styles.separar}>
                     <Text style={styles.eduxtitulo}>EduX</Text>
+                    <TouchableOpacity onPress={Logout}>
                     <Image
                         style={styles.imagemSair}
                         source={{
@@ -28,6 +27,7 @@ const Cabecalho = () => {
                         }}
                         onPress={Logout}
                     />
+                    </TouchableOpacity>
             </View>
         </View>
     )
