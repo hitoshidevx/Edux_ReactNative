@@ -1,31 +1,27 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Button } from 'react-native';
 
-const Cabecalho = () => {
+const Cabecalho = ({navigation}) => {
 
-    const Logout = ({navigation}) =>{
-        return(
-            <View>
-                <TouchableOpacity onPress={() => {
-                    AsyncStorage.removeItem('@jwt');
-                    navigation.push('Login');
-                  }} />
-            </View>
-        )
+    const Logout = () =>{
+
+            // await AsyncStorage.removeItem('@jwt');
+            navigation.push('Login');
+
     }
 
     return(
         <View style={styles.cabecalho}>
             <View style={styles.separar}>
                     <Text style={styles.eduxtitulo}>EduX</Text>
-                    <TouchableOpacity onPress={Logout}>
+                    <TouchableOpacity onPress={() => Logout()}>
                     <Image
                         style={styles.imagemSair}
                         source={{
                         uri:
                             'https://www.flaticon.com/svg/static/icons/svg/25/25376.svg',
                         }}
-                        onPress={Logout}
                     />
                     </TouchableOpacity>
             </View>
