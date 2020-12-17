@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
 import Cabecalho from '../../components/Cabecalho';
+import {url} from '../../utils/constants';
 import './index.css'
 
 const DATA = [
@@ -29,11 +30,11 @@ const Turma = () => {
     const renderItem = ({ item }) => (
         <Item title={item.title} />
       );
-    
+
     return(
         <View>
             <Cabecalho />
-            <Text style={styles.text}>Turma</Text>
+            <Text style={styles.text}>TURMA</Text>
 
             <div className="container">
                 <div className="card">
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
       color: "#9200D6",
       fontSize: 30,
       fontWeight: "bold",
+      fontStyle: "normal",
       textAlign: "center",
       marginTop: "1.5em",
     //   backgroundColor: "#D6D6D6"

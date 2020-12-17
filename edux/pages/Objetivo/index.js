@@ -1,13 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Cabecalho from '../../components/Cabecalho';
 
-const TimeLine = () =>{
-
+const Objetivo = () => {
     return(
         <View>
             <Cabecalho />
-            <Text style={styles.text}>DICAS</Text>
+            <Text style={styles.text}>OBJETIVO</Text>
         </View>
     )
 }
@@ -25,4 +24,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default TimeLine;
+export default Objetivo;

@@ -1,33 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons'
 
-const Logout = ({navigation}) =>{
-    return(
-        <View>
-            <Button title="Sair" onPress={() => {
-                AsyncStorage.removeItem('@jwt');
-                navigation.push('Login');
-              }} />
-        </View>
-    )
-}
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Cabecalho = () => {
-
-
+    
+    const Logout = ({navigation}) =>{
+        return(
+            <View>
+                <TouchableOpacity title="Sair" 
+                    onPress={() => {
+                        AsyncStorage.removeItem('@jwt');
+                        navigation.push('Login');
+                    }}
+                />
+            </View>
+        )
+    }
 
     return(
         <View style={styles.cabecalho}>
             <View style={styles.separar}>
                     <Text style={styles.eduxtitulo}>EduX</Text>
-                    <Image
-                        style={styles.imagemSair}
-                        source={{
-                        uri:
-                            'https://www.flaticon.com/svg/static/icons/svg/25/25376.svg',
-                        }}
-                        onPress={Logout}
-                    />
+                    <TouchableOpacity onPress={Logout}>
+                        <FontAwesome5  name={'sign-out-alt'} size={30} color={'#fff'} />
+                    </TouchableOpacity>
             </View>
         </View>
     )
@@ -49,12 +47,13 @@ const styles = StyleSheet.create({
         width: '1.8em',
         height: '1.8em',
         marginRight: '1em',
+        color: 'fff',
     },
     eduxtitulo: {
+        fontStyle: 'normal',
         fontSize: '2em',
-        fontWeight: 'Bold',
+        fontWeight: '900',
         color: 'white',
-        marginLeft: '1em',
     }
   });
 

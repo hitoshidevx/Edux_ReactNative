@@ -5,8 +5,6 @@ import './index.css';
 
 const Home = () => {
 
-    const image = { uri: "https://reactjs.org/logo-og.png" };
-
     return(
         <View>
             <Cabecalho />
@@ -72,9 +70,10 @@ const styles = StyleSheet.create({
       color: "#9200D6",
       fontSize: 30,
       fontWeight: "bold",
+      fontStyle: "normal",
       textAlign: "center",
       marginTop: "1.5em",
-    //   backgroundColor: "#D6D6D6"
+      //   backgroundColor: "#D6D6D6"
     },
     imagemCard: {
         width: '3.5em',
