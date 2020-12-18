@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useState } from 'react';
 import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
 import Cabecalho from '../../components/Cabecalho';
 import {url} from '../../utils/constants';
@@ -27,8 +28,24 @@ const DATA = [
 
 const Turma = () => {
 
+    const [alunos, setAluno] = useState([]);
+
+    useEffect(() => {
+      listarAlunos();
+  }, [])
+
+    const listarAlunos = () =>{
+      fetch(url+'Usuario')
+            .then(response => response.json())
+            .then(dados => {
+                setAluno(dados);
+                console.log(dados);
+            })
+            .catch(err => console.error(err));
+    }
+
     const renderItem = ({ item }) => (
-        <Item title={item.title} />
+        <Item title={item.nome} />
       );
 
     return(

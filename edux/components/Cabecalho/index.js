@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons'
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import { FontAwesome5 } from '@expo/vector-icons'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Cabecalho = () => {
     
@@ -19,18 +18,18 @@ const Cabecalho = () => {
         )
     }
 
-    return(
-        <View style={styles.cabecalho}>
-            <View style={styles.separar}>
-                    <Text style={styles.eduxtitulo}>EduX</Text>
-                    <TouchableOpacity onPress={Logout}>
-                        <FontAwesome5  name={'sign-out-alt'} size={30} color={'#fff'} />
-                    </TouchableOpacity>
+        return(
+            <View style={styles.cabecalho}>
+                <View style={styles.separar}>
+                        <Text style={styles.eduxtitulo}>EduX</Text>
+                        <TouchableOpacity onPress={Logout}>
+                            <FontAwesome5  name={'sign-out-alt'} size={30} color={'#fff'} />
+                        </TouchableOpacity>
+                </View>
             </View>
-        </View>
-    )
-
+        )
 }
+
 
 const styles = StyleSheet.create({
     cabecalho: {
