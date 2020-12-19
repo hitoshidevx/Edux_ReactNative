@@ -3,9 +3,9 @@ import React from 'react';
 import { FontAwesome5 } from '@expo/vector-icons'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Cabecalho = () => {
+const Cabecalho = ({navigation}) => {
     
-    const Logout = ({navigation}) =>{
+    const Logout = () =>{
         return(
             <View>
                 <TouchableOpacity title="Sair" 
@@ -17,6 +17,7 @@ const Cabecalho = () => {
             </View>
         )
     }
+    
 
         return(
             <View style={styles.cabecalho}>

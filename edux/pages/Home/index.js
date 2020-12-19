@@ -1,18 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Cabecalho from '../../components/Cabecalho';
-import './index.css';
 
 const Home = () => {
 
     return(
+        
         <View>
             <Cabecalho />
             <Text style={styles.text}>RANKING GERAL</Text>
-            <div className="container">
+            <View style={styles.container1}>
 
-                <div className="cardRanking">
-                    <div>
+                <View style={styles.cardRanking}>
+                    <View>
                         <Image
                             style={styles.imagemCard}
                             source={{
@@ -20,37 +20,37 @@ const Home = () => {
                                 'https://lh3.googleusercontent.com/ogw/ADGmqu8hLGlCrPvhctADQyUHlvLIBN2biYe3EGLyAqwKcg=s83-c-mo',
                             }}
                         />
-                    </div>
-                    <div>
-                        <h3>
+                    </View>
+                    <View>
+                        <Text style={styles.text1Card}>
                             Tiago de Castro Valim
-                        </h3>
-                        <p>
+                        </Text>
+                        <Text style={styles.text2Card}>
                             Dev
-                        </p>
-                    </div>
-                </div>
+                        </Text>
+                    </View>
+                </View>
 
-                <div className="centro">
-                        <div className="bola vermelha">
-                            <p className="letra">Bola 1</p>
-                        </div>
+                <View style={styles.centro}>
+                        <View style={styles.bolaVa}>
+                            <Text style={styles.letra}>Bola 1</Text>
+                        </View>
 
-                        <div className="flex">
-                            <div className="bola amarela">
-                                <p className="letra">Bola 2</p>
-                            </div>
+                        <View style={styles.flex}>
+                            <View style={styles.bolaAm}>
+                                <Text style={styles.letra}>Bola 2</Text>
+                            </View>
 
-                            <div className="bola verde">
-                                <p className="letra">Bola 3</p>
-                            </div>
-                        </div>
+                            <View style={styles.bolaVe}>
+                                <Text style={styles.letra}>Bola 3</Text>
+                            </View>
+                        </View>
                         
-                        <div className="bola azul">
-                            <p className="letra">Bola 4</p>
-                        </div>
-                </div>
-            </div>
+                        <View style={styles.bolaAz}>
+                            <Text style={styles.letra}>Bola 4</Text>
+                        </View>
+                </View>
+            </View>
         </View>
     )
 
@@ -58,8 +58,9 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     container: {
+    width: '100%',
       flex: 1,
-      flexDirection: "column"
+      flexDirection: "column",
     },
     image: {
       flex: 1,
@@ -79,7 +80,89 @@ const styles = StyleSheet.create({
         width: '3.5em',
         height: '3.5em',
         borderRadius: '4em',
-      },
+    },
+    container1: {
+        width: '80%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        /* backgroundColor: 'gray'; */
+    },
+    bolaVa: {
+        width: '6em',
+        height: '6em',
+        borderRadius: '50%',
+        display: 'flex',
+        backgroundColor: '#FF271C',
+    },
+    bolaAm: {
+        width: '6em',
+        height: '6em',
+        borderRadius: '50%',
+        display: 'flex',
+        backgroundColor: '#F9E800',
+    },
+    bolaAz: {
+        width: '6em',
+        height: '6em',
+        borderRadius: '50%',
+        display: 'flex',
+        backgroundColor: '#00C2EE',
+    },
+    bolaVe: {
+        width: '6em',
+        height: '6em',
+        borderRadius: '50%',
+        display: 'flex',
+        backgroundColor: '#00D65F',
+    },
+    flex: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    letra:{
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: '1.5em',
+        display: 'flex',
+        margin: 'auto',
+    },
+    centro: {
+        width: '90%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: 'auto',
+        marginTop: '1em',
+        // backgroundColor: 'gray',
+    },
+    cardRanking: {
+        margin: 'auto',
+        marginTop: '1em',
+        padding: '0.5em',
+        width: '100%',
+        height: '4em',
+        borderRadius: '4em',
+        backgroundColor: '#9200D6',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginBottom: '1em',
+    },
+    text1Card: {
+        fontSize: '1.2em',
+        fontWeight: 'bold',
+    },
+    text2Card: {
+        fontSize: '1.1em',
+        fontWeight: 'bold',
+    },
+    
+    
+
   });
 
 export default Home;

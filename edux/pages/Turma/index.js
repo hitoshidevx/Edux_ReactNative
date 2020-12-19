@@ -1,60 +1,50 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
+import {View, Text, StyleSheet, FlatList, Image, ScrollView} from 'react-native';
 import Cabecalho from '../../components/Cabecalho';
 import {url} from '../../utils/constants';
-import './index.css'
-
-const DATA = [
-    {
-      id: '1',
-      title: 'Nome 1',
-    },
-    {
-      id: '2',
-      title: 'Nome 2',
-    },
-    {
-      id: '3',
-      title: 'Nome 3',
-    },
-  ];
-
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
 
 const Turma = () => {
 
-    const [alunos, setAluno] = useState([]);
+    const [usuarios, setUsuarios] = useState([]);
 
     useEffect(() => {
+
       listarAlunos();
+
   }, [])
 
-    const listarAlunos = () =>{
-      fetch(url+'Usuario')
-            .then(response => response.json())
-            .then(dados => {
-                setAluno(dados);
-                console.log(dados);
-            })
-            .catch(err => console.error(err));
+  const listarAlunos = () => {
+    fetch(`${url}usuarios`)
+        .then(response => response.json())
+        .then(data => {
+            setUsuarios(data)
+            console.log(data);
+        })
+        .catch(err => console.error(err));
+}
+    const Item = ({nome}) => {
+      return (
+          <View style={styles.item}>
+              <Text style={styles.nome}>{nome}</Text>
+          </View>
+          )
     }
 
-    const renderItem = ({ item }) => (
-        <Item title={item.nome} />
-      );
+    const renderItem = ({ item }) => {
+          return(
+            <Item nome={item.nome} />
+        )
+      };
 
     return(
         <View>
             <Cabecalho />
+          <ScrollView style={styles.scrollView}>
             <Text style={styles.text}>TURMA</Text>
 
-            <div className="container">
-                <div className="card">
+            <View style={styles.container1}>
+                <View style={styles.card}>
                     <Image
                         style={styles.logo}
                         source={{
@@ -62,21 +52,20 @@ const Turma = () => {
                             'https://i1.wp.com/socientifica.com.br/wp-content/uploads/2019/05/image_7150_1e-Hubble-Legacy-Field.jpg?fit=1920%2C1773&ssl=1',
                         }}
                     />
-                    <h2 className="tituloCard">2S - 2°DM</h2>
-                    <h2 className="tituloCard">Desenvolvimento de Sistemas</h2>
-                    <div className="divAlunos">
-                        <h3>Alunos</h3>  
-                        <FlatList
-                            style={styles.margemE}
-                            data={DATA}
+                    <Text style={styles.tituloCard}>2S - 2°DM </Text>
+                    <Text style={styles.cursoCard}> Desenvolvimento de Sistemas</Text>
+                    <View>
+                        <Text style={styles.tituloAlunos}>Alunos</Text>  
+                          <FlatList
+                            data={usuarios}
                             renderItem={renderItem}
-                            keyExtractor={item => item.id}
-                        />
-                    </div>          
-                </div>
-            </div>
+                            keyExtractor={item => item.nome}
+                          />
+                    </View>          
+                </View>
+            </View>
 
-
+            </ScrollView>
         </View>
         
 
@@ -118,6 +107,57 @@ const styles = StyleSheet.create({
         marginBottom: '1em',
         borderRadius: '2em',
       },
+      item : {
+        backgroundColor : 'gray',
+        borderRadius: '2em',
+        display: 'flex',
+        padding : 5,
+        marginVertical : 8,
+        marginHorizontal : 16,
+    },
+    scrollView: {
+      marginHorizontal: 20,
+    },
+    container1: {
+      width: '80%',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      margin: 'auto',
+      /* backgroundColor: 'gray'; */
+    },
+    card: {
+      width: '100%',
+      padding: '0.5em',
+      marginTop: '1em',
+      marginBottom: '5em',
+      borderRadius: '1em',
+      border: 'solid 0.1em #9200D6',
+      backgroundColor: 'rgb(255, 255, 255)',
+      display: 'flex',
+      textAlign: 'center',
+  },
+  tituloCard: {
+    fontSize: '1.3em',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    borderBottom: '2px solid black',
+    marginBottom: '0.5em',
+  },
+  tituloAlunos: {
+    marginBottom: '0.5em',
+    fontWeight: 'bold',
+    fontSize: '1.2em',
+  },
+  divAlunos: {
+    margin: 'auto',
+    marginLeft: '0.5em',
+  },
+  cursoCard: {
+    marginBottom: '0.5em',
+    fontSize: '1.2em',
+  }
   });
 
 export default Turma;
